@@ -4,35 +4,35 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public struct CardData: IEnumerable<int>
+struct CardData
 {
-    private int shape;
-    private int color;
-    private int fill;
-    private int number;
+    private const int traitCount = 4;
+    private int[] cardTraits;
 
     public CardData(int shape, int color, int fill, int number)
     {
-        this.shape = shape;
-        this.color = color;
-        this.fill = fill;
-        this.number = number;
-        //add iteration to check 0-2
-    }
-    
-    
-    
-
-    public IEnumerator<int> GetEnumerator()
-    {
-        yield return shape;
-        yield return color;
-        yield return fill;
-        yield return number;
+        cardTraits = new []{ shape, color, fill, number };
+        foreach (var trait in cardTraits)
+        {
+            if (trait < 0 || trait > 2)
+            {
+                throw new Exception($"trait index out of 0-2 range ({trait})");
+            }
+        }
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
+    public override int GetHashCode() //an int to use as key!
     {
-        return GetEnumerator();
+        int hashCode = 0;
+        int digit = 10 * traitCount - 1; // 1000 for 4 digits, 100 for 3 etc
+        for (int i = 0; i < traitCount; i++)
+        {
+            hashCode += digit * cardTraits[i];
+        }
+
+        return hashCode;
     }
+
+    
+
 }
