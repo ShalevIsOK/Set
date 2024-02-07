@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-struct CardData
+class CardData
 {
     private const int traitCount = 4;
     private int[] cardTraits;
@@ -28,9 +28,15 @@ struct CardData
         for (int i = 0; i < traitCount; i++)
         {
             hashCode += digit * cardTraits[i];
+            digit /= 10;
         }
 
         return hashCode;
+    }
+
+    public static CardData GetCompletingCard(CardData card1, CardData card2)
+    {
+        throw new NotImplementedException();
     }
 
     
