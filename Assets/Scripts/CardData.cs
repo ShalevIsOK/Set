@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-class CardData
+public class CardData
 {
     private const int traitCount = 4;
     private int[] cardTraits;
@@ -20,6 +20,8 @@ class CardData
             }
         }
     }
+
+    
 
     public override int GetHashCode() //an int to use as key!
     {
