@@ -12,7 +12,7 @@ public class Set
           cardsInSet = new() { card1.GetHashCode(), card2.GetHashCode(), card3.GetHashCode() };
           //unit test: check it is, in fact, a set
      }
-
+     
      
      
      
