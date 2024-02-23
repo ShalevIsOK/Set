@@ -10,7 +10,6 @@ public class Set
      public Set(CardData card1, CardData card2, CardData card3)
      {
           cardsInSet = new() { card1.GetHashCode(), card2.GetHashCode(), card3.GetHashCode() };
-          //unit test: check it is, in fact, a set
      }
      
      
@@ -19,6 +18,5 @@ public class Set
      
      
      //a list of existing sets will check if a set exists in it. maybe a dictionary. 
-     //radix sort each set to create a unique 12 digit ID, which allows easy comparing?
      
 }
