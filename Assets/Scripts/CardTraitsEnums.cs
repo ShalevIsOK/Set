@@ -23,5 +23,10 @@ public enum CardFill
     Full
 }
     
-    
+public enum Count
+{
+    one,
+    two, 
+    three
+}
 
